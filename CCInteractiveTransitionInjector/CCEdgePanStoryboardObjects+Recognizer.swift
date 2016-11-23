@@ -28,7 +28,7 @@ class CCScreenEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer {
     }
 }
 
-class CCStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioningDelegate {
+class CCEdgePanStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioningDelegate {
     
     override init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
@@ -37,24 +37,27 @@ class CCStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioningDelegat
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CCSwipeTransitionAnimator()
+        return CCEdgePanTransitionAnimator()
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CCSwipeTransitionAnimator()
+        return CCEdgePanTransitionAnimator()
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return CCSwipeInteractionController(from: source, to: destination)
+        return CCEdgePanInteractionController(from: source, to: destination)
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return CCSwipeInteractionController(from: destination, to: source)
+        return CCEdgePanInteractionController(from: destination, to: source)
     }
 }
 
 
-class CCInteractionInjector: NSObject {
+
+
+
+class CCEdgePanInteractionInjector: NSObject {
     private enum Edge: Int {
         case top, right, bottom, left
         func toUIRectEdge() -> UIRectEdge {
@@ -70,7 +73,9 @@ class CCInteractionInjector: NSObject {
     }
     
     @IBInspectable var segueIdentifier: String = ""
-    @IBInspectable var isDismiss: Bool = false
+    private var isDismiss: Bool {
+        return segueIdentifier == ""
+    }
     // 0, 1, 2, 3 -> top, right, bottom, left.
     @IBInspectable var edge: Int = Edge.right.rawValue
     private var finalEdge: UIRectEdge {
@@ -80,7 +85,7 @@ class CCInteractionInjector: NSObject {
     private var recognizer: CCScreenEdgePanGestureRecognizer!
     
     private func setup() {
-        recognizer = CCScreenEdgePanGestureRecognizer(target: self, action:#selector(CCInteractionInjector.gestureRecognizerDidUpdate(recognizer:)))
+        recognizer = CCScreenEdgePanGestureRecognizer(target: self, action:#selector(CCEdgePanInteractionInjector.gestureRecognizerDidUpdate(recognizer:)))
         recognizer.finalEdges = finalEdge
         targetView.addGestureRecognizer(recognizer)
     }

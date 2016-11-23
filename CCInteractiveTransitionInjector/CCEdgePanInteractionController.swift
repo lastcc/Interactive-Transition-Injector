@@ -1,5 +1,5 @@
 //
-//  CCSwipeInteractionController.swift
+//  CCEdgePanInteractionController.swift
 //  CCInteractiveTransitionInjector
 //
 //  Created by 陈成 on 2016/11/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CCSwipeInteractionController: UIPercentDrivenInteractiveTransition {
+class CCEdgePanInteractionController: UIPercentDrivenInteractiveTransition {
     
     private var transitionContext: UIViewControllerContextTransitioning!
     private var recognizer: CCScreenEdgePanGestureRecognizer!
@@ -71,11 +71,11 @@ class CCSwipeInteractionController: UIPercentDrivenInteractiveTransition {
         super.init()
 
         recognizer = results.first!
-        recognizer.addTarget(self, action: #selector(CCSwipeInteractionController.gestureRecognizerDidUpdate(recognizer:)))
+        recognizer.addTarget(self, action: #selector(CCEdgePanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
     }
     
     deinit {
-        recognizer.removeTarget(self, action: #selector(CCSwipeInteractionController.gestureRecognizerDidUpdate(recognizer:)))
+        recognizer.removeTarget(self, action: #selector(CCEdgePanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
     }
 
 }

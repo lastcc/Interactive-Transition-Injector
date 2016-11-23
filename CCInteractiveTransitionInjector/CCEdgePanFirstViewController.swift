@@ -8,4 +8,4 @@
 
 import UIKit
 
-class CCSwipeFirstViewController: UIViewController { }
+class CCEdgePanFirstViewController: UIViewController { }

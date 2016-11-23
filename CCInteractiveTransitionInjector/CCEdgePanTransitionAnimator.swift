@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CCSwipeTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+
+class CCEdgePanTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.35
@@ -16,11 +17,11 @@ class CCSwipeTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
-        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let fromView = transitionContext.view(forKey: .from)!
+        let toView = transitionContext.view(forKey: .to)!
         
-        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
-        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let fromViewController = transitionContext.viewController(forKey: .from)!
+        let toViewController = transitionContext.viewController(forKey: .to)!
         
         let isPresenting = toViewController.presentingViewController == fromViewController
         

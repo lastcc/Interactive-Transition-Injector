@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M5Q-KZ-209">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,132 +9,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swipe First View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--List-->
+        <scene sceneID="m0I-ZY-sot">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CCSwipeFirstViewController" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dz5-t3-KAh">
-                                <rect key="frame" x="161" y="318" width="53" height="30"/>
-                                <state key="normal" title="Present"/>
-                                <connections>
-                                    <segue destination="pLu-1U-29J" kind="presentation" identifier="segueIdentifier" customClass="CCStoryboardSegue" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" id="60o-WX-nfV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.60772337617417294" green="0.78752428756476678" blue="0.62691488972627563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="dz5-t3-KAh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="atN-Uu-e32"/>
-                            <constraint firstItem="dz5-t3-KAh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ezR-Y3-WId"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="8TL-NV-7YQ" customClass="CCInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="edge">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="segueIdentifier" value="segueIdentifier"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="targetView" destination="8bC-Xf-vdC" id="Tcw-4C-myh"/>
-                    </connections>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="390" y="90"/>
-        </scene>
-        <!--Swipe Second View Controller-->
-        <scene sceneID="aWe-Jl-5x9">
-            <objects>
-                <viewController id="pLu-1U-29J" customClass="CCSwipeSecondViewController" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JCe-Vd-zX2"/>
-                        <viewControllerLayoutGuide type="bottom" id="0TF-Pw-fSW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AlY-nb-do2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe from left edge to go back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8As-hK-aOw">
-                                <rect key="frame" x="65.5" y="323" width="244" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.7146417498588562" green="0.80659466981887817" blue="0.89413219690322876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="8As-hK-aOw" firstAttribute="centerX" secondItem="AlY-nb-do2" secondAttribute="centerX" id="sfY-Sy-Amm"/>
-                            <constraint firstItem="8As-hK-aOw" firstAttribute="centerY" secondItem="AlY-nb-do2" secondAttribute="centerY" id="urY-sp-mgf"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="pR3-MN-0mg" kind="presentation" identifier="id2" customClass="CCStoryboardSegue" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" id="zkG-QN-Bz2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ab-xr-n0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="TNI-ZM-qZO" customClass="CCInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismiss" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="edge">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="targetView" destination="AlY-nb-do2" id="WX5-U3-OSa"/>
-                    </connections>
-                </customObject>
-                <customObject id="CLE-AO-DqN" customClass="CCInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="segueIdentifier" value="id2"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="edge">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismiss" value="NO"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="targetView" destination="AlY-nb-do2" id="Xz2-yN-8NN"/>
-                    </connections>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="1151" y="91"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="b6K-UZ-zgs">
-            <objects>
-                <viewController id="pR3-MN-0mg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JGr-fw-U0T"/>
-                        <viewControllerLayoutGuide type="bottom" id="cMB-ku-c84"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6la-tg-K7s">
+                <tableViewController id="3VP-r8-nxe" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mv1-dK-mvC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9U7-eW-ilN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Ad6-O5-5JG" customClass="CCInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDismiss" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="edge">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="targetView" destination="6la-tg-K7s" id="vQU-gf-zzh"/>
-                    </connections>
-                </customObject>
+                        <sections>
+                            <tableViewSection id="yvM-hp-vWE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nZc-Z5-0X4" style="IBUITableViewCellStyleDefault" id="DlP-SN-Rkx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DlP-SN-Rkx" id="XCe-hj-gB1">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Edge Pan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nZc-Z5-0X4">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="sXS-Ha-YL8" kind="presentation" id="EQc-y6-gJQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JNF-b1-Z3P">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JNF-b1-Z3P" id="Wcf-al-0bV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Fko-7L-Ger">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fko-7L-Ger" id="ZPE-2k-93f">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="3VP-r8-nxe" id="Del-bo-sdf"/>
+                            <outlet property="delegate" destination="3VP-r8-nxe" id="5OW-bL-d4T"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="List" id="bgb-im-vs5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jM-sR-763" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982" y="91"/>
+            <point key="canvasLocation" x="1474.4000000000001" y="691.304347826087"/>
+        </scene>
+        <!--EdgePan-->
+        <scene sceneID="8Oe-x0-YOI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EdgePan" id="sXS-Ha-YL8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx5-ck-oMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="488"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rIB-2D-HBc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M5Q-KZ-209" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yly-tP-DLd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3VP-r8-nxe" kind="relationship" relationship="rootViewController" id="SL7-Px-a8K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ZQ-2y-AWK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535.20000000000005" y="691.304347826087"/>
         </scene>
     </scenes>
 </document>

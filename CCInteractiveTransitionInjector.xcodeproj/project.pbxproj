@@ -7,29 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		428EF29B1DE5D85400C6B860 /* EdgePan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428EF29A1DE5D85400C6B860 /* EdgePan.storyboard */; };
 		429ED7E21DE1A604001755F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7E11DE1A604001755F1 /* AppDelegate.swift */; };
 		429ED7E71DE1A604001755F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429ED7E51DE1A604001755F1 /* Main.storyboard */; };
 		429ED7E91DE1A604001755F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 429ED7E81DE1A604001755F1 /* Assets.xcassets */; };
 		429ED7EC1DE1A604001755F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429ED7EA1DE1A604001755F1 /* LaunchScreen.storyboard */; };
-		429ED7F41DE1A644001755F1 /* CCSwipeFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F31DE1A644001755F1 /* CCSwipeFirstViewController.swift */; };
-		429ED7F61DE1A731001755F1 /* CCSwipeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F51DE1A731001755F1 /* CCSwipeSecondViewController.swift */; };
-		429ED7F81DE1A7C8001755F1 /* CCStoryboardObjects+Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F71DE1A7C8001755F1 /* CCStoryboardObjects+Recognizer.swift */; };
-		429ED7FA1DE1A893001755F1 /* CCSwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F91DE1A893001755F1 /* CCSwipeTransitionAnimator.swift */; };
-		429ED7FC1DE1A8DB001755F1 /* CCSwipeInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7FB1DE1A8DB001755F1 /* CCSwipeInteractionController.swift */; };
+		429ED7F41DE1A644001755F1 /* CCEdgePanFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F31DE1A644001755F1 /* CCEdgePanFirstViewController.swift */; };
+		429ED7F61DE1A731001755F1 /* CCEdgePanSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F51DE1A731001755F1 /* CCEdgePanSecondViewController.swift */; };
+		429ED7F81DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F71DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift */; };
+		429ED7FA1DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7F91DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift */; };
+		429ED7FC1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7FB1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		428EF29A1DE5D85400C6B860 /* EdgePan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EdgePan.storyboard; sourceTree = "<group>"; };
 		429ED7DE1DE1A604001755F1 /* CCInteractiveTransitionInjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCInteractiveTransitionInjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		429ED7E11DE1A604001755F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		429ED7E61DE1A604001755F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		429ED7E81DE1A604001755F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		429ED7EB1DE1A604001755F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		429ED7ED1DE1A604001755F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		429ED7F31DE1A644001755F1 /* CCSwipeFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSwipeFirstViewController.swift; sourceTree = "<group>"; };
-		429ED7F51DE1A731001755F1 /* CCSwipeSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSwipeSecondViewController.swift; sourceTree = "<group>"; };
-		429ED7F71DE1A7C8001755F1 /* CCStoryboardObjects+Recognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CCStoryboardObjects+Recognizer.swift"; sourceTree = "<group>"; };
-		429ED7F91DE1A893001755F1 /* CCSwipeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSwipeTransitionAnimator.swift; sourceTree = "<group>"; };
-		429ED7FB1DE1A8DB001755F1 /* CCSwipeInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSwipeInteractionController.swift; sourceTree = "<group>"; };
+		429ED7F31DE1A644001755F1 /* CCEdgePanFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCEdgePanFirstViewController.swift; sourceTree = "<group>"; };
+		429ED7F51DE1A731001755F1 /* CCEdgePanSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCEdgePanSecondViewController.swift; sourceTree = "<group>"; };
+		429ED7F71DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CCEdgePanStoryboardObjects+Recognizer.swift"; sourceTree = "<group>"; };
+		429ED7F91DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCEdgePanTransitionAnimator.swift; sourceTree = "<group>"; };
+		429ED7FB1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCEdgePanInteractionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		428EF29C1DE5D86400C6B860 /* Key Objects */ = {
+			isa = PBXGroup;
+			children = (
+				429ED7F71DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift */,
+				429ED7F91DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift */,
+				429ED7FB1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift */,
+			);
+			name = "Key Objects";
+			sourceTree = "<group>";
+		};
 		429ED7D51DE1A604001755F1 = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +74,8 @@
 		429ED7E01DE1A604001755F1 /* CCInteractiveTransitionInjector */ = {
 			isa = PBXGroup;
 			children = (
-				429ED7F31DE1A644001755F1 /* CCSwipeFirstViewController.swift */,
-				429ED7F51DE1A731001755F1 /* CCSwipeSecondViewController.swift */,
 				429ED7E51DE1A604001755F1 /* Main.storyboard */,
-				429ED7FE1DE1A9CA001755F1 /* Key Objects */,
+				429ED7FE1DE1A9CA001755F1 /* Edge Pan */,
 				429ED7FD1DE1A9AD001755F1 /* Supporting Files */,
 			);
 			path = CCInteractiveTransitionInjector;
@@ -82,14 +92,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		429ED7FE1DE1A9CA001755F1 /* Key Objects */ = {
+		429ED7FE1DE1A9CA001755F1 /* Edge Pan */ = {
 			isa = PBXGroup;
 			children = (
-				429ED7F71DE1A7C8001755F1 /* CCStoryboardObjects+Recognizer.swift */,
-				429ED7F91DE1A893001755F1 /* CCSwipeTransitionAnimator.swift */,
-				429ED7FB1DE1A8DB001755F1 /* CCSwipeInteractionController.swift */,
+				428EF29A1DE5D85400C6B860 /* EdgePan.storyboard */,
+				429ED7F31DE1A644001755F1 /* CCEdgePanFirstViewController.swift */,
+				429ED7F51DE1A731001755F1 /* CCEdgePanSecondViewController.swift */,
+				428EF29C1DE5D86400C6B860 /* Key Objects */,
 			);
-			name = "Key Objects";
+			name = "Edge Pan";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429ED7EC1DE1A604001755F1 /* LaunchScreen.storyboard in Resources */,
+				428EF29B1DE5D85400C6B860 /* EdgePan.storyboard in Resources */,
 				429ED7E91DE1A604001755F1 /* Assets.xcassets in Resources */,
 				429ED7E71DE1A604001755F1 /* Main.storyboard in Resources */,
 			);
@@ -165,12 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				429ED7F41DE1A644001755F1 /* CCSwipeFirstViewController.swift in Sources */,
-				429ED7FC1DE1A8DB001755F1 /* CCSwipeInteractionController.swift in Sources */,
-				429ED7FA1DE1A893001755F1 /* CCSwipeTransitionAnimator.swift in Sources */,
+				429ED7F41DE1A644001755F1 /* CCEdgePanFirstViewController.swift in Sources */,
+				429ED7FC1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift in Sources */,
+				429ED7FA1DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift in Sources */,
 				429ED7E21DE1A604001755F1 /* AppDelegate.swift in Sources */,
-				429ED7F61DE1A731001755F1 /* CCSwipeSecondViewController.swift in Sources */,
-				429ED7F81DE1A7C8001755F1 /* CCStoryboardObjects+Recognizer.swift in Sources */,
+				429ED7F61DE1A731001755F1 /* CCEdgePanSecondViewController.swift in Sources */,
+				429ED7F81DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +346,7 @@
 				429ED7F21DE1A604001755F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
