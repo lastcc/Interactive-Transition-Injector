@@ -37,6 +37,9 @@ class CCPanTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromView.frame = fromViewControllerInitialFrame.offsetBy(dx: fromViewControllerInitialFrame.width * (isPresenting ? -1:1), dy: 0)
         }, completion: { finished in
             let wasCancelled = transitionContext.transitionWasCancelled
+            if wasCancelled {
+                toView.removeFromSuperview()
+            }
             transitionContext.completeTransition(!wasCancelled)
         })
     }
