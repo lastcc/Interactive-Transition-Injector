@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42875E501DE6CC30004538D9 /* NormalPan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42875E4F1DE6CC30004538D9 /* NormalPan.storyboard */; };
+		42875E521DE6CDA8004538D9 /* CCPanStoryboardObjects+Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875E511DE6CDA8004538D9 /* CCPanStoryboardObjects+Recognizer.swift */; };
+		42875E561DE6D814004538D9 /* CCPanInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875E551DE6D814004538D9 /* CCPanInteractionController.swift */; };
+		42875E591DE6F329004538D9 /* CCPanTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875E581DE6F329004538D9 /* CCPanTransitionAnimator.swift */; };
+		42875E5B1DE6F6EA004538D9 /* CCPanFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875E5A1DE6F6EA004538D9 /* CCPanFirstViewController.swift */; };
+		42875E5D1DE6F6FC004538D9 /* CCPanSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875E5C1DE6F6FC004538D9 /* CCPanSecondViewController.swift */; };
 		428EF29B1DE5D85400C6B860 /* EdgePan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428EF29A1DE5D85400C6B860 /* EdgePan.storyboard */; };
 		429ED7E21DE1A604001755F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ED7E11DE1A604001755F1 /* AppDelegate.swift */; };
 		429ED7E71DE1A604001755F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429ED7E51DE1A604001755F1 /* Main.storyboard */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42875E4F1DE6CC30004538D9 /* NormalPan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NormalPan.storyboard; sourceTree = "<group>"; };
+		42875E511DE6CDA8004538D9 /* CCPanStoryboardObjects+Recognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CCPanStoryboardObjects+Recognizer.swift"; sourceTree = "<group>"; };
+		42875E551DE6D814004538D9 /* CCPanInteractionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCPanInteractionController.swift; sourceTree = "<group>"; };
+		42875E581DE6F329004538D9 /* CCPanTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCPanTransitionAnimator.swift; sourceTree = "<group>"; };
+		42875E5A1DE6F6EA004538D9 /* CCPanFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCPanFirstViewController.swift; sourceTree = "<group>"; };
+		42875E5C1DE6F6FC004538D9 /* CCPanSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCPanSecondViewController.swift; sourceTree = "<group>"; };
 		428EF29A1DE5D85400C6B860 /* EdgePan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EdgePan.storyboard; sourceTree = "<group>"; };
 		429ED7DE1DE1A604001755F1 /* CCInteractiveTransitionInjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCInteractiveTransitionInjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		429ED7E11DE1A604001755F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +57,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42875E4E1DE6CBB1004538D9 /* Normal Pan */ = {
+			isa = PBXGroup;
+			children = (
+				42875E4F1DE6CC30004538D9 /* NormalPan.storyboard */,
+				42875E5A1DE6F6EA004538D9 /* CCPanFirstViewController.swift */,
+				42875E5C1DE6F6FC004538D9 /* CCPanSecondViewController.swift */,
+				42875E571DE6D825004538D9 /* Key Objects */,
+			);
+			name = "Normal Pan";
+			sourceTree = "<group>";
+		};
+		42875E571DE6D825004538D9 /* Key Objects */ = {
+			isa = PBXGroup;
+			children = (
+				42875E511DE6CDA8004538D9 /* CCPanStoryboardObjects+Recognizer.swift */,
+				42875E581DE6F329004538D9 /* CCPanTransitionAnimator.swift */,
+				42875E551DE6D814004538D9 /* CCPanInteractionController.swift */,
+			);
+			name = "Key Objects";
+			sourceTree = "<group>";
+		};
 		428EF29C1DE5D86400C6B860 /* Key Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				429ED7E51DE1A604001755F1 /* Main.storyboard */,
+				42875E4E1DE6CBB1004538D9 /* Normal Pan */,
 				429ED7FE1DE1A9CA001755F1 /* Edge Pan */,
 				429ED7FD1DE1A9AD001755F1 /* Supporting Files */,
 			);
@@ -167,6 +201,7 @@
 				428EF29B1DE5D85400C6B860 /* EdgePan.storyboard in Resources */,
 				429ED7E91DE1A604001755F1 /* Assets.xcassets in Resources */,
 				429ED7E71DE1A604001755F1 /* Main.storyboard in Resources */,
+				42875E501DE6CC30004538D9 /* NormalPan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,11 +213,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				429ED7F41DE1A644001755F1 /* CCEdgePanFirstViewController.swift in Sources */,
+				42875E5B1DE6F6EA004538D9 /* CCPanFirstViewController.swift in Sources */,
 				429ED7FC1DE1A8DB001755F1 /* CCEdgePanInteractionController.swift in Sources */,
 				429ED7FA1DE1A893001755F1 /* CCEdgePanTransitionAnimator.swift in Sources */,
 				429ED7E21DE1A604001755F1 /* AppDelegate.swift in Sources */,
 				429ED7F61DE1A731001755F1 /* CCEdgePanSecondViewController.swift in Sources */,
+				42875E5D1DE6F6FC004538D9 /* CCPanSecondViewController.swift in Sources */,
+				42875E521DE6CDA8004538D9 /* CCPanStoryboardObjects+Recognizer.swift in Sources */,
+				42875E561DE6D814004538D9 /* CCPanInteractionController.swift in Sources */,
 				429ED7F81DE1A7C8001755F1 /* CCEdgePanStoryboardObjects+Recognizer.swift in Sources */,
+				42875E591DE6F329004538D9 /* CCPanTransitionAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

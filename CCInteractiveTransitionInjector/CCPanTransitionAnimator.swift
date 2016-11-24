@@ -1,22 +1,19 @@
 //
-//  CCEdgePanTransitionAnimator.swift
+//  CCPanTransitionAnimator.swift
 //  CCInteractiveTransitionInjector
 //
-//  Created by 陈成 on 2016/11/20.
+//  Created by 陈成 on 2016/11/24.
 //  Copyright © 2016年 陈成. All rights reserved.
 //
 
 import UIKit
 
-
-class CCEdgePanTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
+class CCPanTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.35
+        return 0.3
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         let fromView = transitionContext.view(forKey: .from)!
         let toView = transitionContext.view(forKey: .to)!
         
@@ -31,19 +28,19 @@ class CCEdgePanTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
         let duration = transitionDuration(using: transitionContext)
         
         fromView.frame = fromViewControllerInitialFrame
-        toView.frame = toViewControllerFinalFrame.offsetBy(dx: isPresenting ? toViewControllerFinalFrame.width : 0, dy: 0)
-        
-        isPresenting ? transitionContext.containerView.addSubview(toView) : transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
+        toView.frame = toViewControllerFinalFrame.offsetBy(dx: toViewControllerFinalFrame.width * (isPresenting ? 1:-1), dy: 0)
+
+        transitionContext.containerView.addSubview(toView)
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-            (isPresenting ? toView:fromView).frame = (isPresenting ? toViewControllerFinalFrame : fromViewControllerInitialFrame.offsetBy(dx: fromViewControllerInitialFrame.width, dy: 0))
+            toView.frame = toViewControllerFinalFrame
+            fromView.frame = fromViewControllerInitialFrame.offsetBy(dx: fromViewControllerInitialFrame.width * (isPresenting ? -1:1), dy: 0)
         }, completion: { finished in
             let wasCancelled = transitionContext.transitionWasCancelled
-            if wasCancelled {
-                toView.removeFromSuperview()
-            }
             transitionContext.completeTransition(!wasCancelled)
         })
     }
-
 }
+
+
+

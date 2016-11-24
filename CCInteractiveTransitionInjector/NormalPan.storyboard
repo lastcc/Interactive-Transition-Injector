@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N36-bk-ubB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pan Second View Controller-->
+        <scene sceneID="VRl-Na-yZP">
+            <objects>
+                <viewController id="Pdn-tq-MZ3" customClass="CCPanSecondViewController" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X5C-5D-WCz"/>
+                        <viewControllerLayoutGuide type="bottom" id="zdC-yH-zza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tDf-FH-eD5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr0-0Y-bmh">
+                                <rect key="frame" x="126" y="214" width="123" height="239"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                                <color key="textColor" red="0.44689487298366443" green="0.77127185880829019" blue="0.76069085583035145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.81442880150668895" blue="0.72891372791139442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pr0-0Y-bmh" firstAttribute="centerX" secondItem="tDf-FH-eD5" secondAttribute="centerX" id="TYg-7K-wOP"/>
+                            <constraint firstItem="Pr0-0Y-bmh" firstAttribute="centerY" secondItem="tDf-FH-eD5" secondAttribute="centerY" id="VUU-DM-Sox"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Kpk-7D-W8X" kind="presentation" identifier="panSegueIdentifier2" customClass="CCPanStoryboardSegue" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" id="9nf-Nf-7WB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAr-9Q-Wdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="afp-1A-Bjo" userLabel="Dismiss" customClass="CCPanInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="targetView" destination="tDf-FH-eD5" id="JHr-4y-m9o"/>
+                    </connections>
+                </customObject>
+                <customObject id="oOb-4G-oee" customClass="CCPanInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="segueIdentifier" value="panSegueIdentifier2"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="targetView" destination="tDf-FH-eD5" id="6Lx-gM-iJv"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1006" y="132"/>
+        </scene>
+        <!--Pan First View Controller-->
+        <scene sceneID="rOI-dA-frd">
+            <objects>
+                <viewController id="N36-bk-ubB" customClass="CCPanFirstViewController" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MrQ-YK-PrA"/>
+                        <viewControllerLayoutGuide type="bottom" id="xTy-ol-Vow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gfO-iB-sWh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVF-Dz-Isu">
+                                <rect key="frame" x="125" y="214" width="126.5" height="239"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                                <color key="textColor" red="0.44689487298366443" green="0.77127185880829019" blue="0.76069085583035145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67966151237487793" green="0.87274426221847534" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jVF-Dz-Isu" firstAttribute="centerY" secondItem="gfO-iB-sWh" secondAttribute="centerY" id="0aS-Fp-WKv"/>
+                            <constraint firstItem="jVF-Dz-Isu" firstAttribute="centerX" secondItem="gfO-iB-sWh" secondAttribute="centerX" id="G61-qP-p4v"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Pdn-tq-MZ3" kind="presentation" identifier="panSegueIdentifier" customClass="CCPanStoryboardSegue" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" id="rog-72-1qJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCn-xa-KcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="9Er-s0-BAe" customClass="CCPanInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="segueIdentifier" value="panSegueIdentifier"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="targetView" destination="gfO-iB-sWh" id="yM0-ed-b4P"/>
+                    </connections>
+                </customObject>
+                <customObject id="Ned-1Y-tPm" userLabel="Dismiss" customClass="CCPanInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="targetView" destination="gfO-iB-sWh" id="AKF-XX-DCA"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="156" y="132"/>
+        </scene>
+        <!--Pan Second View Controller-->
+        <scene sceneID="ngu-r4-mye">
+            <objects>
+                <viewController id="Kpk-7D-W8X" customClass="CCPanSecondViewController" customModule="CCInteractiveTransitionInjector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ReR-if-2aM"/>
+                        <viewControllerLayoutGuide type="bottom" id="PRo-bS-Mny"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Tq-E8-5jm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLE-li-8Od">
+                                <rect key="frame" x="118.5" y="214" width="138" height="239"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
+                                <color key="textColor" red="0.44689487300000003" green="0.77127185880000004" blue="0.76069085579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77891775639689087" green="1" blue="0.92499379739916332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LLE-li-8Od" firstAttribute="centerX" secondItem="2Tq-E8-5jm" secondAttribute="centerX" id="1ls-sL-jXR"/>
+                            <constraint firstItem="LLE-li-8Od" firstAttribute="centerY" secondItem="2Tq-E8-5jm" secondAttribute="centerY" id="R0w-TP-ySF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KD5-uw-exd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="EqF-Iu-orC" userLabel="Dismiss" customClass="CCPanInteractionInjector" customModule="CCInteractiveTransitionInjector" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="direction">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="targetView" destination="2Tq-E8-5jm" id="MOk-rs-XWq"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1801" y="132"/>
+        </scene>
+    </scenes>
+</document>

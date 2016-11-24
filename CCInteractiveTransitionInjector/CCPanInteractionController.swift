@@ -1,20 +1,22 @@
 //
-//  CCEdgePanInteractionController.swift
+//  CCPanInteractionController.swift
 //  CCInteractiveTransitionInjector
 //
-//  Created by 陈成 on 2016/11/20.
+//  Created by 陈成 on 2016/11/24.
 //  Copyright © 2016年 陈成. All rights reserved.
 //
 
 import UIKit
 
-class CCEdgePanInteractionController: UIPercentDrivenInteractiveTransition {
+
+class CCPanInteractionController: UIPercentDrivenInteractiveTransition {
     
     private var transitionContext: UIViewControllerContextTransitioning!
-    private var recognizer: CCScreenEdgePanGestureRecognizer!
+    private var recognizer: CCPanGestureRecognizer!
+    private var initialTranslationInContainerView: CGPoint!
     
     private var shouldFinishTransition: Bool {
-        if percent > 0.4 {
+        if percent > 0.2 {
             return true
         }
         return false
@@ -25,23 +27,14 @@ class CCEdgePanInteractionController: UIPercentDrivenInteractiveTransition {
             return 0
         }
         
-        let edges = recognizer.finalEdges
-        let locationInSourceView = recognizer.location(in: transitionContext.containerView)
-        let width = transitionContext.containerView.bounds.width
-        let height = transitionContext.containerView.bounds.height
+        let translationInContainerView = recognizer.translation(in: transitionContext.containerView)
         
-        var percent: CGFloat = 1
-        if edges == .top {
-            percent = locationInSourceView.y / height
-        } else if edges == .right {
-            percent = (width - locationInSourceView.x) / width
-        } else if edges == .bottom {
-            percent = (height - locationInSourceView.y) / height
-        } else if edges == .left {
-            percent = locationInSourceView.x / width
+        if (translationInContainerView.x > 0 && initialTranslationInContainerView.x < 0) ||
+            (translationInContainerView.x < 0 && initialTranslationInContainerView.x > 0) {
+            return -1
         }
         
-        return percent
+        return fabs(translationInContainerView.x) / transitionContext.containerView.bounds.width
     }
     
     func gestureRecognizerDidUpdate(recognizer: CCScreenEdgePanGestureRecognizer) {
@@ -50,7 +43,11 @@ class CCEdgePanInteractionController: UIPercentDrivenInteractiveTransition {
         case .began:
             break;
         case .changed:
-            update(percent)
+            if percent < 0 {
+                cancel()
+            } else {
+                update(percent)
+            }
         case .ended:
             shouldFinishTransition ? finish() : cancel()
         default:
@@ -60,23 +57,24 @@ class CCEdgePanInteractionController: UIPercentDrivenInteractiveTransition {
     
     override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
+        self.initialTranslationInContainerView = recognizer.translation(in: transitionContext.containerView)
+        self.recognizer.addTarget(self, action: #selector(CCPanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
         super.startInteractiveTransition(transitionContext)
     }
     
     init?(from: UIViewController, to: UIViewController) {
         let gestureRecognizers = from.view.gestureRecognizers ?? []
-        let results = gestureRecognizers.flatMap { ($0 as? CCScreenEdgePanGestureRecognizer)?.effectingRecognizer }
+        let results = gestureRecognizers.flatMap { ($0 as? CCPanGestureRecognizer)?.effectingRecognizer }
         
         guard results.count > 0 else { return nil }
         super.init()
-
+        
         recognizer = results.first!
-        recognizer.addTarget(self, action: #selector(CCEdgePanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
     }
     
     override func cancel() {
-        recognizer.removeTarget(self, action: #selector(CCEdgePanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
+        recognizer.removeTarget(self, action: #selector(CCPanInteractionController.gestureRecognizerDidUpdate(recognizer:)))
         super.cancel()
     }
-
+    
 }

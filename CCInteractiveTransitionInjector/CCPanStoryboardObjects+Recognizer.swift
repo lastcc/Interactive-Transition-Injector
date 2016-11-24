@@ -1,25 +1,15 @@
 //
-//  CCStoryboardObjects+Recognizer.swift
+//  CCPanStoryboardObjects+Recognizer.swift
 //  CCInteractiveTransitionInjector
 //
-//  Created by 陈成 on 2016/11/20.
+//  Created by 陈成 on 2016/11/24.
 //  Copyright © 2016年 陈成. All rights reserved.
 //
 
 import UIKit
 
-
-class CCScreenEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer {
-    
-    // NOTE: Variable `finalEdges` is introduced to fix an issue prior to iOS 8.3
-    //       - always return .none when querying its edges property.
-    var finalEdges: UIRectEdge = .right {
-        didSet {
-            edges = finalEdges
-        }
-    }
-    
-    var effectingRecognizer: CCScreenEdgePanGestureRecognizer? {
+class CCPanGestureRecognizer: UIPanGestureRecognizer {
+    var effectingRecognizer: CCPanGestureRecognizer? {
         let effectiveStates: [UIGestureRecognizerState] = [.began, .changed]
         if effectiveStates.contains(state) {
             return self
@@ -29,7 +19,7 @@ class CCScreenEdgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer {
 }
 
 
-class CCEdgePanStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioningDelegate {
+class CCPanStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioningDelegate {
     
     override init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
@@ -38,31 +28,26 @@ class CCEdgePanStoryboardSegue: UIStoryboardSegue, UIViewControllerTransitioning
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CCEdgePanTransitionAnimator()
+        return CCPanTransitionAnimator()
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CCEdgePanTransitionAnimator()
+        return CCPanTransitionAnimator()
     }
     
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return CCEdgePanInteractionController(from: source, to: destination)
+        return CCPanInteractionController(from: source, to: destination)
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return CCEdgePanInteractionController(from: destination, to: source)
+        return CCPanInteractionController(from: destination, to: source)
     }
 }
 
 
-
-class CCEdgePanInteractionInjector: NSObject {
-    private enum Edge: Int {
-        case top, right, bottom, left
-        func toUIRectEdge() -> UIRectEdge {
-            let allEdges: [UIRectEdge] = [.top, .right, .bottom, .left]
-            return allEdges[self.rawValue]
-        }
+class CCPanInteractionInjector: NSObject {
+    private enum Direction: Int {
+        case left, right, notDetermined = -1
     }
     
     @IBOutlet weak var targetView: UIView! {
@@ -75,25 +60,45 @@ class CCEdgePanInteractionInjector: NSObject {
     private var isDismiss: Bool {
         return segueIdentifier == ""
     }
-    // 0, 1, 2, 3 -> top, right, bottom, left.
-    @IBInspectable var edge: Int = Edge.right.rawValue
-    private var finalEdge: UIRectEdge {
-        return Edge(rawValue: edge)!.toUIRectEdge()
+    // 0, 1 -> left, right.
+    @IBInspectable var direction: Int = Direction.left.rawValue
+    private var finalDirection: Direction {
+        return Direction(rawValue: direction)!
     }
-    
-    private var recognizer: CCScreenEdgePanGestureRecognizer!
+    private var recognizer: CCPanGestureRecognizer!
     
     private func setup() {
-        recognizer = CCScreenEdgePanGestureRecognizer(target: self, action:#selector(CCEdgePanInteractionInjector.gestureRecognizerDidUpdate(recognizer:)))
-        recognizer.finalEdges = finalEdge
+        let gestureRecognizers = targetView.gestureRecognizers ?? []
+        let results = gestureRecognizers.flatMap { $0 as? CCPanGestureRecognizer }
+        recognizer = results.first ?? CCPanGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(CCPanInteractionInjector.gestureRecognizerDidUpdate(recognizer:)))
         targetView.addGestureRecognizer(recognizer)
     }
     
-    func gestureRecognizerDidUpdate(recognizer: CCScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .began {
+    private var recognizerDirection: Direction {
+        let translation = recognizer.translation(in: targetView)
+        if translation.x > 0 {
+            return .right
+        } else if translation.x < 0 {
+            return .left
+        }
+        return .notDetermined
+    }
+    
+    private func forceToFailIfNeeded() {
+        let translation = recognizer.translation(in: targetView)
+        if translation.x == 0 && translation.y != 0 {
+            recognizer.isEnabled = false
+            recognizer.isEnabled = true
+        }
+    }
+    
+    func gestureRecognizerDidUpdate(recognizer: CCPanGestureRecognizer) {
+        if recognizer.effectingRecognizer != nil {
             if let source = targetView.next as? UIViewController {
                 guard source.isViewLoaded else { return }
                 guard source.transitionCoordinator == nil else { return }
+                guard recognizerDirection == finalDirection else { return forceToFailIfNeeded() }
                 if isDismiss {
                     source.dismiss(animated: true, completion: nil)
                 } else {

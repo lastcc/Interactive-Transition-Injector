@@ -1,5 +1,5 @@
 //
-//  CCSwipeFirstViewController.swift
+//  CCEdgePanFirstViewController.swift
 //  CCInteractiveTransitionInjector
 //
 //  Created by 陈成 on 2016/11/20.
