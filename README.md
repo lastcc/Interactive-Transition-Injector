@@ -4,10 +4,10 @@
 
 Oftentimes, we want interactive transitions between view controllers. In order to achieve that, we would have to:
 
-1. Instantiate a UIGestureRecognizer subclass, set it up in the source view controller's `viewDidLoad` method, and attach it to the relevant view.
-2. Write code to handle the delegete method of the gestureRecognizer.
-3. Override the `prepareForSegue` method of the source view controller. Setup the destination view controller's transitionDelegate to an object(often the source view controller itself) in your own implementation. Then implement four delegate methods of transitionDelegate.
-4. Insert code in the destination view controller to setup the interactive transition for opposite direction.
+1. Instantiate an UIGestureRecognizer subclass, set it up in the source view controller's `viewDidLoad` method, and attach it to the relevant view.
+2. Write code to handle the delegate method of the gestureRecognizer.
+3. Override the `prepareForSegue` method of the source view controller. In your own implementation of this method, setup the destination view controller's transitionDelegate to an object(often the source view controller itself). Then implement four delegate methods required by `UIViewControllerTransitioningDelegate` protocol.
+4. Insert code in the destination view controller to setup the interactive transition for the opposite direction.
 
 
 This project is an attempt to simplify things and decouple code.
