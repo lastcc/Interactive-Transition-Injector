@@ -10,7 +10,9 @@ Oftentimes, we want interactive transitions between view controllers. In order t
 4. Insert code in the destination view controller to setup the interactive transition for the opposite direction.
 
 
-This project is an attempt to simplify things and decouple code.
+This project is an attempt to simplify things and decouple code. 
+
+    You do not need to put any code in the view controller.
 
 And all settings can be modified in the Interface Builder's attribute inspector. You only need to:
 
